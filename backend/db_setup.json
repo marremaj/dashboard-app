@@ -1,0 +1,9 @@
+[
+    "PRAGMA foreign_keys = ON;",
+    "CREATE TABLE Dashboard (id INTEGER PRIMARY KEY AUTOINCREMENT, name text)",
+    "CREATE TABLE Element (id INTEGER PRIMARY KEY AUTOINCREMENT, dashboardid integer, name text, type text, FOREIGN KEY(dashboardid) REFERENCES Dashboard(id) ON DELETE CASCADE)",
+    "CREATE TABLE List (id INTEGER PRIMARY KEY AUTOINCREMENT, dashboardid integer, name text, FOREIGN KEY(dashboardid) REFERENCES Dashboard(id) ON DELETE CASCADE)",
+    "CREATE TABLE ListObject (id INTEGER PRIMARY KEY AUTOINCREMENT, elementid integer, title text, FOREIGN KEY(elementid) REFERENCES Element(id) ON DELETE CASCADE)",
+    "CREATE TABLE Photo (id INTEGER PRIMARY KEY AUTOINCREMENT, elementid integer UNIQUE, path text, FOREIGN KEY(elementid) REFERENCES Element(id) ON DELETE CASCADE)",
+    "CREATE TABLE Note  (id INTEGER PRIMARY KEY AUTOINCREMENT, elementid integer UNIQUE, body text, FOREIGN KEY(elementid) REFERENCES Element(id) ON DELETE CASCADE)"
+]

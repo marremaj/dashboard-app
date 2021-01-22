@@ -1,0 +1,4 @@
+*/db.sqlite
+*/node_modules
+*package-lock.json
+backend/images
